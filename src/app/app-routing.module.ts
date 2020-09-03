@@ -8,11 +8,12 @@ import { AddLinksComponent } from './components/features/links/add-links/add-lin
 import { PageNotFoundComponent } from './components/features/extra/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '',   redirectTo: '/register', pathMatch: 'full' },
+  { path: '', redirectTo: '/register', pathMatch: 'full' },
   { path: 'header', component: HeaderComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'update-links', component: AddLinksComponent },
+  { path: 'update-links/:id', component: AddLinksComponent },
   { path: 'list-links', component: ListLinksComponent },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];

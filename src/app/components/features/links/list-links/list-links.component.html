@@ -1,1 +1,8 @@
-<p>list-links works!</p>
+<button class="btn btn-primary" (click)="navigateToUpdate('add')">Add</button>
+<ul>
+  <li *ngFor="let links of allLinks; let i = index;">
+    {{i + 1}}. {{ links.title }}
+    <button class="btn btn-primary" (click)="navigateToUpdate( 'edit',links.id)">Edit</button>
+    <button class="btn btn-primary" (click)="deleteLinkById(links.id)">Delete</button>
+  </li>
+</ul>

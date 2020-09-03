@@ -1,1 +1,61 @@
-<p>registration works!</p>
+<h4 class="text-center" *ngIf="isLoginForm">Login</h4>
+<h4 class="text-center" *ngIf="!isLoginForm">Register</h4>
+
+<div class="container">
+
+    <!-- login form -->
+    <form *ngIf="isLoginForm" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" novalidate>
+        <div class="form-group">
+            <label for="loginEmail">Email address</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+            <small class="form-text text-muted"
+                *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required">
+                Please enter email address.!
+            </small>
+
+            <small class="form-text text-muted"
+                *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email">
+                Email address not well formed.!
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+    </form>
+    <button *ngIf="isLoginForm" (click)=openRegistrationForm() class="btn btn-primary">Don't have an
+        Account?Register</button>
+    <!-- login form -->
+
+    <!-- registration form  -->
+    <form *ngIf="!isLoginForm" [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()" novalidate>
+        <div class="form-group">
+            <label for="registrationName">Full Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter name">
+        </div>
+
+        <div class="form-group">
+            <label for="registrationEmail">Email address</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+            <small class="form-text text-muted"
+                *ngIf="registerForm.controls.email.touched && registerForm.controls.email.errors?.required">
+                Please enter email address.!
+            </small>
+
+            <small class="form-text text-muted"
+                *ngIf="registerForm.controls.email.touched && registerForm.controls.email.errors?.email">
+                Email address not well formed.!
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="registrationPassword">Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Submit</button>
+    </form>
+    <button *ngIf="!isLoginForm" (click)=openLoginForm() class="btn btn-primary">Already have an Account?Login</button>
+    <!-- registration form -->
+</div>

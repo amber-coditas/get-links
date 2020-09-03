@@ -1,1 +1,45 @@
-<p>add-links works!</p>
+<h4 class="text-center" *ngIf="isAddLinkForm">Add Link</h4>
+<h4 class="text-center" *ngIf="!isAddLinkForm">Edit Link</h4>
+
+<div class="container">
+
+    <!-- add link form -->
+    <form *ngIf="isAddLinkForm" [formGroup]="addLinkForm" (ngSubmit)="onAddLinkSubmit()" novalidate>
+        <div class="form-group">
+            <label for="addLinkTitle">Link Title</label>
+            <input type="text" class="form-control" formControlName="title" placeholder="title">
+        </div>
+
+        <div class="form-group">
+            <label for="addLinkDescription">Link Description</label>
+            <input type="text" class="form-control" formControlName="description" placeholder="description">
+        </div>
+
+        <div class="form-group">
+            <label for="addLinkCategory">Link Category</label>
+            <input type="text" class="form-control" formControlName="category" placeholder="category">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!addLinkForm.valid">Add Link</button>
+    </form>
+    <!-- add link form -->
+
+    <!-- edit link form  -->
+    <form *ngIf="!isAddLinkForm" [formGroup]="editLinkForm" (ngSubmit)="onEditLinkSubmit()" novalidate>
+        <div class="form-group">
+            <label for="editLinkTitle">Title</label>
+            <input type="text" class="form-control" formControlName="title" placeholder="Enter title">
+        </div>
+
+        <div class="form-group">
+            <label for="editLinkDescription">Link Description</label>
+            <input type="text" class="form-control" formControlName="description" placeholder="description">
+        </div>
+
+        <div class="form-group">
+            <label for="editLinkCategory">Link Category</label>
+            <input type="text" class="form-control" formControlName="category" placeholder="category">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!editLinkForm.valid">Submit</button>
+    </form>
+    <!-- edit link form -->
+</div>
