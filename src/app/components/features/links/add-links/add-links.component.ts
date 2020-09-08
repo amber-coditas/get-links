@@ -35,7 +35,6 @@ export class AddLinksComponent implements OnInit {
     if (typeof this.id != "undefined" && this.id != null) {
       this.linksService.getLinkById(this.id).subscribe((data: any[]) => {
         this.data = data;
-        console.log("this.data", this.data);
         this.editLinkForm.get('title').setValue(this.data.title)
         this.editLinkForm.get('description').setValue(this.data.description)
         this.editLinkForm.get('category').setValue(this.data.category)
@@ -47,20 +46,16 @@ export class AddLinksComponent implements OnInit {
   }
 
   onAddLinkSubmit() {
-    if (this.addLinkForm.valid) {
-      console.log("this.addLinkForm.value", this.addLinkForm.value);
-      this.linksService.addLink(this.addLinkForm.value).subscribe((data: any[]) => {
-        console.log("add link", this.data);
+    if (this.addLinkForm.valid) {      
+      this.linksService.addLink(this.addLinkForm.value).subscribe((data: any[]) => {        
         this.router.navigate(['/list-links']);
       })
     }
   }
 
   onEditLinkSubmit() {
-    if (this.editLinkForm.valid) {
-      console.log("this.editLinkForm.value", this.editLinkForm.value);
-      this.linksService.editLink(this.editLinkForm.value, this.data.id).subscribe((data: any[]) => {
-        console.log("edit link", this.data);
+    if (this.editLinkForm.valid) {      
+      this.linksService.editLink(this.editLinkForm.value, this.data.id).subscribe((data: any[]) => {        
         this.router.navigate(['/list-links']);
       })
     }
