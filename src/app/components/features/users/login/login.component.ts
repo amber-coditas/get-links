@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loggedState$: Observable<boolean>;
-  loginStateValue:boolean;
+  loginStateValue: boolean;
   constructor(private usersService: UsersService, private router: Router, private store: Store<{ loggedIn: boolean }>) {
     this.loggedState$ = store.pipe(select('loggedIn'));
     this.loginForm = new FormGroup({
@@ -32,8 +32,7 @@ export class LoginComponent implements OnInit {
         if (user && user['token']) {
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.store.dispatch(truestate());
-          console.log("this.loggedState$",this.loggedState$);
-          this.loggedState$.subscribe((currentState)=>{
+          this.loggedState$.subscribe((currentState) => {
             this.loginStateValue = currentState;
           })
           this.router.navigate(['/list-links']);

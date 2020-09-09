@@ -10,17 +10,17 @@ import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/features/users/login/login.component';
 const routes: Routes = [
   { path: '', component: ListLinksComponent, },
-  { path: 'login', component : LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: RegistrationComponent },
   { path: 'update-links', component: AddLinksComponent },
   { path: 'update-links/:id', component: AddLinksComponent },
-  { path: 'list-links', component: ListLinksComponent ,canActivate: [AuthGuard]},
-    // otherwise redirect to home
-    { path: '**', redirectTo: ' ' }
-  
+  { path: 'list-links', component: ListLinksComponent, canActivate: [AuthGuard] },
+  // otherwise redirect to home
+  { path: '**', redirectTo: ' ' }
+
 ];
 
 @NgModule({

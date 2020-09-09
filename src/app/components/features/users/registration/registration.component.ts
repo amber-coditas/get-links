@@ -27,6 +27,6 @@ export class RegistrationComponent implements OnInit {
       this.usersService.register(this.registerForm.value).subscribe((data: any[]) => {
       })
     }
-  }  
+  }
 
 }

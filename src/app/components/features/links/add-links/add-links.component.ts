@@ -17,7 +17,7 @@ export class AddLinksComponent implements OnInit {
   addLinkForm: FormGroup;
   editLinkForm: FormGroup;
   constructor(private linksService: LinksService, private activatedRoute: ActivatedRoute, private router: Router) {
-    this.addLinkForm = new FormGroup({      
+    this.addLinkForm = new FormGroup({
       title: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
       category: new FormControl('', [Validators.required])
@@ -46,16 +46,16 @@ export class AddLinksComponent implements OnInit {
   }
 
   onAddLinkSubmit() {
-    if (this.addLinkForm.valid) {      
-      this.linksService.addLink(this.addLinkForm.value).subscribe((data: any[]) => {        
+    if (this.addLinkForm.valid) {
+      this.linksService.addLink(this.addLinkForm.value).subscribe((data: any[]) => {
         this.router.navigate(['/list-links']);
       })
     }
   }
 
   onEditLinkSubmit() {
-    if (this.editLinkForm.valid) {      
-      this.linksService.editLink(this.editLinkForm.value, this.data.id).subscribe((data: any[]) => {        
+    if (this.editLinkForm.valid) {
+      this.linksService.editLink(this.editLinkForm.value, this.data.id).subscribe((data: any[]) => {
         this.router.navigate(['/list-links']);
       })
     }

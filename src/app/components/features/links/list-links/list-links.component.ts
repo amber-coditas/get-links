@@ -16,7 +16,7 @@ export class ListLinksComponent implements OnInit {
     let user = JSON.parse(localStorage.getItem("currentUser"));
     if (typeof user != "undefined" && user != null) {
       user.userType == 2 ? this.isAdmin = true : this.isAdmin = false;
-    } 
+    }
     this.linksService.getAllLinks().subscribe((data: any[]) => {
       this.allLinks = data;
     })

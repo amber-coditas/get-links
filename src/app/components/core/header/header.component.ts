@@ -12,24 +12,22 @@ import { Store, select } from '@ngrx/store';
 export class HeaderComponent implements OnInit {
   loggedState$: Observable<boolean>
   loginStateValue: boolean;
-  constructor(private usersService: UsersService, private router: Router, private store: Store<{ loggedIn: boolean }>) { 
+  constructor(private usersService: UsersService, private router: Router, private store: Store<{ loggedIn: boolean }>) {
     this.loggedState$ = store.pipe(select('loggedIn'));
   }
 
-  ngOnInit(): void {   
-    this.loggedState$.subscribe((currentState)=>{
+  ngOnInit(): void {
+    this.loggedState$.subscribe((currentState) => {
       this.loginStateValue = currentState;
-      console.log("this.loginStateValue===",this.loginStateValue);
     })
   }
 
   logout() {
     localStorage.removeItem('currentUser');
     this.store.dispatch(falsestate());
-    console.log("this.loggedState$",this.loggedState$);    
   }
 
-  login(){
+  login() {
     this.router.navigate(['/login']);
   }
 
