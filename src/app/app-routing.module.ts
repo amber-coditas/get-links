@@ -9,14 +9,14 @@ import { PageNotFoundComponent } from './components/features/extra/page-not-foun
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/features/users/login/login.component';
 const routes: Routes = [
-  { path: '', component: ListLinksComponent, canActivate: [AuthGuard] },
-  { path: 'login', component : LoginComponent ,canActivate: [AuthGuard]},
-  { path: 'header', component: HeaderComponent ,canActivate: [AuthGuard]},
-  { path: 'footer', component: FooterComponent ,canActivate: [AuthGuard]},
-  { path: 'register', component: RegistrationComponent ,canActivate: [AuthGuard]},
-  { path: 'login', component: RegistrationComponent ,canActivate: [AuthGuard]},
-  { path: 'update-links', component: AddLinksComponent ,canActivate: [AuthGuard]},
-  { path: 'update-links/:id', component: AddLinksComponent ,canActivate: [AuthGuard]},
+  { path: '', component: ListLinksComponent, },
+  { path: 'login', component : LoginComponent },
+  { path: 'header', component: HeaderComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'register', component: RegistrationComponent },
+  { path: 'login', component: RegistrationComponent },
+  { path: 'update-links', component: AddLinksComponent },
+  { path: 'update-links/:id', component: AddLinksComponent },
   { path: 'list-links', component: ListLinksComponent ,canActivate: [AuthGuard]},
     // otherwise redirect to home
     { path: '**', redirectTo: ' ' }

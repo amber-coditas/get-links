@@ -123,6 +123,6 @@
   },
   "defaultProject": "get-links",
   "cli": {
-    "analytics": "2dec8b35-63e8-48b2-b91c-19e6a92d4cdf"
+    "analytics": false
   }
 }

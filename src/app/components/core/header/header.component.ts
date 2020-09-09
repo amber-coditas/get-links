@@ -26,8 +26,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     localStorage.removeItem('currentUser');
     this.store.dispatch(falsestate());
-    console.log("this.loggedState$",this.loggedState$);
-    this.router.navigate(['/list-links']);
+    console.log("this.loggedState$",this.loggedState$);    
   }
 
   login(){
