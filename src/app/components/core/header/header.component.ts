@@ -15,16 +15,26 @@ export class HeaderComponent implements OnInit {
   siteTitle = 'GetLinks';
   constructor(private usersService: UsersService, private router: Router, private store: Store<{ loggedIn: boolean }>) {
     this.loggedState$ = store.pipe(select('loggedIn'));
+    
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {   
     this.loggedState$.subscribe((currentState) => {
       this.loginStateValue = currentState;
-    })
+      console.log("this.loginStateValu ngrx==",this.loginStateValue)
+    }) 
+
+    if (localStorage.getItem('currentUser')) {
+     this.loginStateValue = true;
+     console.log("this.loginStateValu ngrx==",this.loginStateValue);
+    }
+
+
   }
 
   logout() {
     localStorage.removeItem('currentUser');
+    this.loginStateValue = false;
     this.store.dispatch(falsestate());
   }
 

@@ -13,13 +13,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'footer', component: FooterComponent },
-  { path: 'register', component: RegistrationComponent },
-  { path: 'login', component: RegistrationComponent },
-  { path: 'update-links', component: AddLinksComponent },
-  { path: 'update-links/:id', component: AddLinksComponent },
+  { path: 'register', component: RegistrationComponent },  
+  { path: 'update-links', component: AddLinksComponent,canActivate: [AuthGuard] },
+  { path: 'update-links/:id', component: AddLinksComponent, canActivate: [AuthGuard] },
   { path: 'list-links', component: ListLinksComponent, canActivate: [AuthGuard] },
   // otherwise redirect to home
-  { path: '**', redirectTo: ' ' }
+  { path: '**', redirectTo: '' }
 
 ];
 

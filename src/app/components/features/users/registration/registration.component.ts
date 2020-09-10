@@ -20,6 +20,9 @@ export class RegistrationComponent implements OnInit {
 
 
   ngOnInit(): void {
+    if (localStorage.getItem('currentUser')) {
+      this.router.navigate(['/list-links']);
+    }
   }
 
   onRegisterSubmit() {

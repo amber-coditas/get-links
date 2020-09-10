@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loggedState$: Observable<boolean>;
   loginStateValue: boolean;
-  keyboardImageUrl:string = './../../../../../assets/keyboard.png'
-  constructor(    
+  keyboardImageUrl: string = './../../../../../assets/keyboard.png'
+  constructor(
     private usersService: UsersService,
     private router: Router,
     private store: Store<{ loggedIn: boolean }>) {
@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem('currentUser')) {
+      this.router.navigate(['/list-links']);
+    }
   }
 
   onLoginSubmit() {
