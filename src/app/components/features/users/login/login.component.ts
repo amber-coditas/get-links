@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { UsersService } from './../../../../services/users/users.service';
 import { truestate } from '../../../../states/login-state/login.actions';
-import { Observable } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +15,11 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loggedState$: Observable<boolean>;
   loginStateValue: boolean;
-  constructor(private usersService: UsersService, private router: Router, private store: Store<{ loggedIn: boolean }>) {
+  keyboardImageUrl:string = './../../../../../assets/keyboard.png'
+  constructor(    
+    private usersService: UsersService,
+    private router: Router,
+    private store: Store<{ loggedIn: boolean }>) {
     this.loggedState$ = store.pipe(select('loggedIn'));
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),

@@ -1,6 +1,6 @@
 // Modules
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,7 +30,7 @@ import { loginReducer } from './states/login-state/login.reducer';
     AddLinksComponent,
     FooterComponent,
     HeaderComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent    
   ],
   imports: [
     BrowserModule,
@@ -41,6 +41,10 @@ import { loginReducer } from './states/login-state/login.reducer';
     StoreModule.forRoot({ loggedIn: loginReducer })
   ],
   providers: [LinksService, UsersService, AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
+  
 })
 export class AppModule { }

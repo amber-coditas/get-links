@@ -12,6 +12,7 @@ import { Store, select } from '@ngrx/store';
 export class HeaderComponent implements OnInit {
   loggedState$: Observable<boolean>
   loginStateValue: boolean;
+  siteTitle = 'GetLinks';
   constructor(private usersService: UsersService, private router: Router, private store: Store<{ loggedIn: boolean }>) {
     this.loggedState$ = store.pipe(select('loggedIn'));
   }
@@ -31,4 +32,4 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-}
+  }
