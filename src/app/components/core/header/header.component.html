@@ -1,2 +1,9 @@
+<!-- Rounded switch -->
+Toggle Theme
+<label class="switch">
+    <input type="checkbox" [checked]="themeStateValue" (change)="toggleValue($event)">
+    <span class="slider round"></span>
+</label>
+
 <button *ngIf="loginStateValue == false" class="btn btn-primary" routerLink="/login">Login</button>
 <button *ngIf="loginStateValue == true" class="btn btn-primary" (click)="logout()" routerLink="/login">Logout</button>

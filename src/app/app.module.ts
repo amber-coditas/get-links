@@ -21,6 +21,7 @@ import { UsersService } from './services/users/users.service';
 import { AuthGuard } from './guards/auth.guard';
 // Reducers
 import { loginReducer } from './states/login-state/login.reducer';
+import { themeReducer } from './states/theme-state/theme.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,10 @@ import { loginReducer } from './states/login-state/login.reducer';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({ loggedIn: loginReducer })
+    StoreModule.forRoot({ 
+      loggedIn: loginReducer, 
+      themeState: themeReducer 
+    })
   ],
   providers: [LinksService, UsersService, AuthGuard],
   bootstrap: [AppComponent],
